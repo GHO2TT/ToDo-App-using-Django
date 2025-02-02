@@ -1,0 +1,44 @@
+{% extends  'base/base.html' %}
+{% load crispy_forms_tags %}
+{% block title %}Sign Up page{% endblock %}
+
+
+
+{% block content %}
+
+<div class="cover">
+
+
+    <div class="container">
+        <div class="row mt-5 pt-3">
+
+            <div class="col-md-3 offset-md-3">
+                <h1 class="pt-5 pr-5 bold">SignUp to TwoDo</h1>
+            </div>
+
+            <div class="col-md-5">
+                <div class="card my-3 shadow">
+                
+                    <div class="card-body">
+                    
+                        <h1>SignUp Page</h1>
+                        <hr>
+                        <form method="POST">
+                            {% csrf_token %}
+                            {{ form|crispy }}
+                            <button class="btn btn-success" type="submit">SignUp</button>
+                        </form>
+                        <hr>
+                        <p>Have an account?</p>
+                        <a class="btn btn-primary" href="{% url 'login' %}">Login</a>
+                    
+                    </div>
+                
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+{% endblock %}

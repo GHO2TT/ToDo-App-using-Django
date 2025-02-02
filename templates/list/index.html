@@ -1,0 +1,70 @@
+{% extends 'base/base.html' %}
+{% block title %}Twodo{% endblock %}
+{% load crispy_forms_tags %}
+
+
+
+{% block content %}
+
+    
+<div class="container">
+    <h1 class="pt-5 mt-5">Welcome, {{user}}!! </h1>
+    <div class="row pt-2">
+
+
+        <div class="col-md-4">
+            <div class="card my-3 shadow">
+                <div class="card-body">
+                    <form method="POST">
+                    <h3>Add TwoDo: </h3>
+                    {% csrf_token %}
+                    {{ form|crispy }}
+                    <button class="btn" type="submit"><i class="fa-solid fa-plus fa-2xl"></i></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-md-8">
+
+            {% for todos in twodo %} 
+            <div class="card shadow my-2">
+                <div class="card-body">
+                    <div class="row">
+
+                        <div class="col-md-9">
+                            <p>{{todos.date_created}}</p>
+                            <hr>
+                            {% if todos.complete == True %}
+                            <h3 style="text-decoration: line-through;">{{todos.title}}</h3>
+                            <p>Completed</p>
+                            {% else %}
+                            <h3>{{todos.title}}</h3>
+                            <p>In Progress</p>
+                            {% endif %}
+                        </div>
+
+                        <div class="col-md-2 pt-4">
+                            <a class="btn" type="submit" href="{% url 'delete' todos.id %} "><i class="fa-solid fa-trash fa-xl" style="color: #dd0000;"></i></a>
+                            <a class="btn" type="submit" href="{% url 'update' todos.id %} "><i class="fa-solid fa-pen fa-xl" style="color: #000000;"></i></a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            
+
+
+        </div>
+
+
+
+
+    </div>
+</div>
+{% endblock %}
+
+
+

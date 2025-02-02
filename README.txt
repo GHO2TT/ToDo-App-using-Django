@@ -1,5 +1,5 @@
 
-# 📌A Todo App 💰
+# 📌A Todo App 📝
 A simple Django todo app .
 
 ## 🚀 Features

@@ -12,6 +12,8 @@ git clone 'project url link'
 or 
 📚Download the zip file and extract it 
 cd 'file directory' 
+mkvirtualenv 'anynameofchoice'
+workon 'name of created virtual environment' (this is to use virtual environment )
 pip install -r requirements.txt
 
 3. Run the app:

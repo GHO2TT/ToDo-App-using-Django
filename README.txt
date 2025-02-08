@@ -15,6 +15,8 @@ cd 'file directory'
 mkvirtualenv 'anynameofchoice'
 workon 'name of created virtual environment' (this is to use virtual environment )
 pip install -r requirements.txt
+python manage.py makemigrations
+python manage.py migrate
 
 3. Run the app:
 ▶️'python manage.py runserver' 
